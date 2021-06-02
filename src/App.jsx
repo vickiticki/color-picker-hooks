@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ColorSlider from './components/ColorSlider'
 
 export function App() {
   // hooks here
@@ -41,44 +42,14 @@ export function App() {
         </p>
         <button onClick={randomColor}>Random Color</button>
       </header>
-      <div className="all sliders">
-        <div className="hue slide container">
-          <h2>H</h2>
-          {/* hue slider */}
-          <input
-            type="range"
-            min="0"
-            max="360"
-            value={hValue}
-            className="h slider"
-            onChange={changeH}
-          ></input>
-        </div>
-        <div className="saturation slide container">
-          {/* saturation slider */}
-          <h2>S</h2>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={sValue}
-            className="s slider"
-            onChange={changeS}
-          ></input>
-        </div>
-        <div className="lightness slide container">
-          {/* lightness slider */}
-          <h2>L</h2>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={lValue}
-            className="l slider"
-            onChange={changeL}
-          ></input>
-        </div>
-      </div>
+      <ColorSlider
+        hue={hValue}
+        sat={sValue}
+        light={lValue}
+        updateH={changeH}
+        updateS={changeS}
+        updateL={changeL}
+      />
     </div>
   )
 }
